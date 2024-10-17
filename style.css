@@ -1,0 +1,215 @@
+:root {
+    --primary-color: #89CFF0;
+    --primary-color-dark: #5CACEE;
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --input-bg: #fff;
+    --input-border: #e0e0e0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #89CFF0, #5CACEE);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.container {
+    background-color: var(--input-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Erhöht für die Registrierungsseite */
+}
+
+.mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#dark-mode-toggle {
+    display: none;
+}
+
+.mode-toggle label {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.mode-toggle label:hover {
+    transform: scale(1.1);
+}
+
+.mode-toggle label i {
+    font-size: 24px;
+    color: white;
+}
+
+.mode-toggle label .fa-sun {
+    display: none; /* Mond-Icon standardmäßig anzeigen */
+}
+
+#dark-mode-toggle:checked + label .fa-sun {
+    display: block; /* Sonne-Icon anzeigen im Dunkelmodus */
+}
+
+#dark-mode-toggle:checked + label .fa-moon {
+    display: none; /* Mond-Icon ausblenden im Dunkelmodus */
+}
+
+#login-form,
+#register-form {
+    display: flex;
+    flex-direction: column; /* Flexbox für vertikale Anordnung */
+}
+
+h2 {
+    text-align: center; 
+    color: var(--primary-color); 
+    margin-bottom: 2rem; 
+}
+
+.input-group {
+    position: relative; 
+    margin-bottom: 1.5rem; 
+}
+
+.input-group input,
+select {
+    width: 100%; 
+    padding: 10px; 
+    font-size: 16px; 
+    color: var(--text-color); 
+    border-radius: 5px; /* Abgerundete Ecken */
+}
+
+.input-group input {
+   border-bottom-width :1px; 
+   border-bottom-style : solid; 
+   border-bottom-color : var(--input-border); 
+   outline : none; 
+   background : transparent; 
+}
+
+.input-group label {
+   position : absolute; 
+   top : 10px; 
+   left : 10px; 
+   padding : 10px ; /* Platzierung des Labels */
+   font-size :16px ; 
+   color : var(--text-color); 
+   pointer-events : none; 
+   transition : all .3s ease ; /* Sanfter Übergang */
+}
+
+/* Platzierung des Labels bei Fokus oder gültiger Eingabe */
+.input-group input :focus ~ label,
+.input-group input :valid ~ label,
+select :focus + label,
+select :valid + label {
+   top :-20px ; 
+   font-size :12px ; 
+   color : var(--primary-color); 
+}
+
+/* Stil für den Registrierungsbutton */
+button[type='button'] {
+   background-color : #4CAF50 ; /* Grüner Hintergrund */
+   color : white ; 
+   padding :10px ; 
+   border :none ; 
+   border-radius :5px ; 
+   font-size :16px ; 
+   cursor:pointer ; 
+   transition :background-color .3s ;
+}
+
+/* Hover-Effekt für den Registrierungsbutton */
+button[type='button']:hover {
+   background-color:#45a049 ; /* Dunklerer Grünton bei Hover */
+}
+
+/* Stil für den Anmeldebutton */
+button[type='submit'] {
+   background-color : var(--primary-color); /* Anmeldebutton-Farbe */
+   color:white ; 
+   padding :10px ; 
+   border:none ; 
+   border-radius :5px ; 
+   font-size :16px ; 
+   cursor:pointer ; 
+   transition :background-color .3s ;
+}
+
+/* Hover-Effekt für den Anmeldebutton */
+button[type='submit']:hover {
+   background-color : var(--primary-color-dark); /* Dunklerer Farbton bei Hover */
+}
+
+/* Fußzeile für das Formular */
+.form-footer {
+   text-align:center ; 
+   margin-top :1rem ; 
+}
+
+/* Link in der Fußzeile */
+.form-footer a {
+   color :var(--primary-color); /* Linkfarbe */
+   text-decoration:none ; /* Unterstreichung entfernen */
+}
+
+/* Hover-Effekt für den Link in der Fußzeile */
+.form-footer a:hover {
+   text-decoration :underline ; /* Unterstreichung hinzufügen bei Hover */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+     --bg-color:#1a1a1a; /* Hintergrundfarbe im Dunkelmodus */
+     --text-color:#f5f5f5; /* Textfarbe im Dunkelmodus */
+     --input-bg:#2a2a2a; /* Eingabefeld-Hintergrund im Dunkelmodus */
+     --input-border:#3a3a3a; /* Eingabefeld-Rahmenfarbe im Dunkelmodus */
+}
+
+/* Animations-Styles */
+@keyframes fadeIn { from { opacity :0 ; transform :translateY(-20px) } to { opacity :1 ; transform :translateY(0) } }
+
+.container { animation:fadIn .5s ease-out ; } /* Fade-In-Effekt für das Container-Element */
+
+.input-group input:hover ~ label,
+.input-group input[valid] ~ label { animation:fadIn .3s ease-out forwards ; } /* Fade-In-Effekt für Label */
+
+/* Dropdown-Stil anpassen */
+select[required]:invalid { color:black; } /* Ungültige Auswahlfarbe */
+
+select option[value=""][disabled] { display:none; } /* Platzhalter ausblenden */
+
+select option { color:black; } /* Textfarbe der Optionen */
