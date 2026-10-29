@@ -1,0 +1,62 @@
+{
+  "epic": {
+    "process_type": "Fall B: Betroffene bekannt (inkl. Triage & Sammelprojekt-Fallback)",
+    "change_id": "CHG-2026-8841",
+    "summary": "[INFRA-CHANGE] Ablösung Core-Firewall & Subnetz-Routing RZ München",
+    "domain": "Netzwerk / Firewall",
+    "environment": "PROD, STAGE",
+    "change_window": "2026-11-28 22:00 bis 2026-11-29 06:00",
+    "duedate": "2026-11-15",
+    "risk": "Hoch",
+    "reporter": "david.geisberger",
+    "test_req": "Verpflichtender Verbindungs- und Smoke-Test im Wartungsfenster",
+    "description": "Im Rahmen der Netzwerk-Modernisierung werden die zentralen Firewall-Cluster migriert. Alle abhängigen Anwendungen müssen ihre Verbindungswege und IP-Freischaltungen verifizieren."
+  },
+  "children": [
+    {
+      "kvkid": "KVK-1042",
+      "app_name": "Bestandsführung Leben (Core)",
+      "target_project": "INFRARCH",
+      "issue_type": "Task",
+      "clarity": "Gesichert betroffen",
+      "environment": "PROD",
+      "objects": "srv-lv-prod01 (10.20.4.12), fw-rule-882",
+      "assignee": "mueller.stefan",
+      "contact_email": "stefan.mueller@vkb.example.com",
+      "risk": "Hoch",
+      "duedate": "2026-11-15",
+      "change_window": "2026-11-28 22:00",
+      "instruction": "Bitte prüfen Sie die neuen Firewall-Regeln bis zum 15.11. und stellen Sie einen Tester für den Smoke-Test am 29.11. bereit."
+    },
+    {
+      "kvkid": "KVK-2089",
+      "app_name": "Archiv-Connector Legacy (Kein eigenes Jira)",
+      "target_project": "INFRARCH",
+      "issue_type": "Task",
+      "clarity": "Gesichert betroffen",
+      "environment": "PROD",
+      "objects": "srv-arch-p02 (10.20.9.44), NAT-Pool-B",
+      "assignee": "schmidt.andreas",
+      "contact_email": "andreas.schmidt@vkb.example.com",
+      "risk": "Mittel",
+      "duedate": "2026-11-15",
+      "change_window": "2026-11-28 22:00",
+      "instruction": "Produkt besitzt kein eigenes Jira-Projekt; Steuerung erfolgt direkt über dieses INFRARCH-Ticket. Bitte Umsetzbarkeit bis 15.11. bestätigen."
+    },
+    {
+      "kvkid": "KVK-3310",
+      "app_name": "Partner-Portal & Makler-API (Unklare Betroffenheit)",
+      "target_project": "INFRARCH",
+      "issue_type": "Task",
+      "clarity": "Unklar - Prüfung erforderlich",
+      "environment": "PROD, STAGE",
+      "objects": "Subnetz 10.24.0.0/16, DNS-Zone makler.intern",
+      "assignee": "weber.christian",
+      "contact_email": "christian.weber@vkb.example.com",
+      "risk": "Hoch",
+      "duedate": "2026-11-10",
+      "change_window": "2026-11-28 22:00",
+      "instruction": "Triage-Anfrage: Laut Netzwerk-Scan bestehen potenzielle Zugriffe auf das Subnetz. Bitte bis 10.11. prüfen, ob Ihre Anwendung betroffen ist."
+    }
+  ]
+}
